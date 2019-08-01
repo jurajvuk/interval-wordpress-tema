@@ -1,0 +1,662 @@
+/*
+Theme Name: Interval
+Theme URI: https://jurajvuk.github.io/interval-web-html-css/index.html
+Author: Juraj Vukić
+Author URI: 
+Description: Wordpress theme for electrical company
+Version: 1.0
+*/
+* {
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+}
+
+
+/*  Navigacijski bar */
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 8vh;
+  /*background-image: linear-gradient(90deg, rgb(247, 255, 239) 0%, rgb(248, 186, 115) 35%, rgb(248, 152, 7) 50%);*/
+  background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+  font-family: 'Poppins', sans-serif;
+}
+
+.logo img {
+  width: 200px;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: space-around;
+  width: 30%;
+}
+
+.nav-links li {
+  list-style: none;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.nav-links li:hover {
+  background-color:rgb(247, 255, 239);
+}
+
+.nav-links a {
+  text-decoration: none;
+  letter-spacing: 2px;
+  font-weight: bold;
+  color: black;
+  font-size: 14px;
+}
+
+.burger {
+  display: none;
+  cursor: pointer;
+}
+
+.burger div {
+  width: 25px;
+  height: 3px;
+  background-color: black;
+  margin: 5px;
+  transition: all 0.3s ease;
+}
+
+@media screen and (max-width: 1800px) {
+  .nav-links {
+      width: 40%;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .nav-links {
+      width: 55%;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .nav-links {
+      width: 60%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .main {
+      overflow-x: hidden!important;
+      position: relative;
+  }
+  .nav-links {
+      width: 50%;
+      position: absolute;
+      right: 0px;
+      height: 92vh;
+      top: 8vh;
+      background-color: rgb(248, 152, 7);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transform: translateX(100%);
+      transition: transform 0.5s ease-in;
+      z-index: 10;
+  }
+  .nav-links li {
+      opacity: 0;
+      width: 80%;
+      border-radius: 10px;
+      text-align: center;
+      padding: 10px;
+  }
+  .nav-links li:hover {
+      background-color:rgb(247, 255, 239);
+  }
+  .burger {
+      display: block;
+  }
+  .logo img {
+      width: 150px;
+  }
+  
+  .slideshow-container {
+      max-width: 100%!important;
+      touch-action: pan-left;
+      touch-action: pan-right;
+  }
+
+  .mySlides img {
+      height: 200px!important;
+  }
+  .text {
+      color: #f2f2f2;
+      font-family: 'Poppins', sans-serif;
+      padding: 8px 12px;
+      position: absolute;
+      bottom: 90px!important;
+      left: 40px!important;
+      height: 90px!important;
+  }
+  .text-naslov {
+      font-size: 14px!important;
+  }
+  .text-sadržaj {
+      font-size: 10px!important;
+  }
+
+  .text a {
+      font-size: 10px!important;
+  }
+  .poslovi {
+      width: 100%!important;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr 1fr 1fr;
+  }
+  .poslovi img {
+      height: 200px!important;
+  }
+  .lijevo1 {
+      grid-column: 1 / 3;
+      padding: 10px;
+  }
+  .lijevo2 {
+      grid-column: 1 / 3;
+      grid-row: 4 / 5;
+  }
+  .desno1 {
+      grid-column: 1 / 3;
+      
+  }
+  .desno2 {
+      grid-column: 1 / 3;
+      padding: 10px;
+  }
+  .partneri-loga {
+      flex-direction: column;
+      align-items: center;
+  }
+  .klijenti-loga {
+      flex-direction: column;
+      align-items: center;
+  }
+  .partneri-loga img {
+      width: 200px!important;
+  }
+  .klijenti-loga img {
+      width: 200px!important;
+  }
+  .onama-pocetna {
+    width: 100%!important;
+    padding: 10px;
+  }
+  .hr-animacija {
+    width: 100%!important;
+  }
+  .onama-hr {
+    width: 100%!important;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  
+}
+
+.nav-active {
+  transform: translateX(0%);
+}
+
+@keyframes navLinkFade {
+  from {
+      opacity: 0;
+      transform: translateX(50px);
+  }
+  to {
+      opacity: 1;
+      transform: translateX(0px);
+  }
+}
+
+.toggle .line1 {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+.toggle .line2 {
+  opacity: 0;
+}
+.toggle .line3 {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* Slideshow container */
+
+.slideshow-container {
+  max-width: 70%;
+  position: relative;
+  margin: auto;
+}
+
+
+.mySlides {
+  display: none;
+}
+
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+
+.text {
+  color: #f2f2f2;
+  font-family: 'Poppins', sans-serif;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 450px;
+  left: 100px;
+  height: 120px;
+  border-radius: 5px;
+}
+
+.text-naslov {
+  font-size: 26px;
+  text-shadow: 2px 2px #666363;
+  font-weight: bold;
+  -webkit-animation-name: naslov;
+  -webkit-animation-duration: 1.5s;
+  animation-name: naslov;
+  animation-duration: 1.5s;
+}
+
+.text-sadržaj {
+  -webkit-animation-name: naslov;
+  -webkit-animation-duration: 1.5s;
+  animation-name: naslov;
+  animation-duration: 1.5s;
+}
+.text hr {
+  background-color: rgb(248, 152, 7);
+  height: 5px;
+  width: 100%;
+  border: 0ch;
+  -webkit-animation-name: text;
+  -webkit-animation-duration: 1.5s;
+  animation-name: text;
+  animation-duration: 1.5s;
+}
+
+.text a {
+    text-decoration: none;
+    color: black;
+    padding: 5px;
+    border: 1px solid rgb(248, 152, 7);
+    background-color: rgb(248, 186, 115);
+    border-radius: 5px;
+}
+
+.text a:hover {
+  background-color: rgb(248, 152, 7);
+  color: rgb(247, 255, 239);
+}
+
+
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+.mySlides img {
+    height: 650px;
+}
+
+.onama-pocetna {
+  width: 70%;
+  margin: auto;
+  font-family: 'Poppins', sans-serif;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  -webkit-animation-name: onama-pocetna;
+  -webkit-animation-duration: 1.5s;
+  animation-name: onama-pocetna;
+  animation-duration: 1.5s;
+}
+
+.onama-hr {
+  height: 10px;
+  margin: auto;
+  background-color: rgb(248, 152, 7);
+  border: 0px;
+  margin-top: 40px;
+  width: 70%;
+  -webkit-animation-name: onama-hr;
+  -webkit-animation-duration: 1.5s;
+  animation-name: onama-hr;
+  animation-duration: 1.5s;
+}
+
+.hr-animacija {
+  width: 70%;
+  
+}
+
+.onama-pocetna a {
+  text-decoration: none;
+  color: rgb(247, 255, 239);
+  padding: 5px;
+  border: 1px solid rgb(248, 152, 7);
+  background-color: rgb(248, 186, 115);
+  border-radius: 5px;
+}
+
+.onama-pocetna a:hover {
+background-color: rgb(248, 152, 7);
+color: rgb(247, 255, 239);
+}
+
+.poslovi {
+  overflow: hidden;
+  width: 70%;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-family: 'Poppins', sans-serif;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  
+}
+
+.poslovi div {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.poslovi img {
+  position: relative;
+  height: 400px;
+  width: 100%;
+}
+
+.poslovi ul {
+  list-style-position: inside;
+}
+
+.lijevo1 {
+  position: relative;
+  -webkit-animation-name: lijevo1;
+  -webkit-animation-duration: 1.5s;
+  animation-name: lijevo1;
+  animation-duration: 1.5s;
+}
+
+.lijevo2 {
+  position: relative;
+  -webkit-animation-name: lijevo2;
+  -webkit-animation-duration: 3.5s;
+  animation-name: lijevo2;
+  animation-duration: 3.5s;
+}
+
+
+.desno1 {
+  position: relative;
+  -webkit-animation-name: desno1;
+  -webkit-animation-duration: 3.5s;
+  animation-name: desno1;
+  animation-duration: 3.5s;
+}
+
+.desno2 {
+  position: relative;
+  -webkit-animation-name: desno2;
+  -webkit-animation-duration: 1.5s;
+  animation-name: desno2;
+  animation-duration: 1.5s;
+}
+
+.partneri {
+  width: 70%;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+}
+
+.partneri-loga {
+  display: flex;
+  justify-content: space-around;
+}
+.partneri-loga img {
+  height: 100px;
+}
+
+.klijenti {
+  width: 70%;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+}
+.klijenti-loga {
+  display: flex;
+  justify-content: space-around;
+}
+.klijenti-loga img {
+  height: 100px;
+}
+
+.poslovi-hr-gornja {
+width: 0%;
+margin: auto;
+height: 10px;
+border: 0px;
+background-color: rgb(248, 152, 7);
+-webkit-transition: all 1s ease-in-out;
+       -moz-transition: all 1s ease-in-out;
+          -ms-transition: all 1s ease-in-out;
+           -o-transition: all 1s ease-in-out;
+                  transition: all 1s ease-in-out;
+}
+
+.poslovi-hr-gornja-animacija {
+width: 70%;
+}
+
+.poslovi-hr-donja {
+width: 0%;
+margin: auto;
+height: 10px;
+border: 0px;
+background-color: rgb(248, 152, 7);
+-webkit-transition: all 1s ease-in-out;
+       -moz-transition: all 1s ease-in-out;
+          -ms-transition: all 1s ease-in-out;
+           -o-transition: all 1s ease-in-out;
+                  transition: all 1s ease-in-out;
+}
+
+.poslovi-hr-donja-animacija {
+width: 70%;
+}
+footer {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(90deg, rgb(247, 255, 239) 0%, rgb(248, 186, 115) 35%, rgb(248, 152, 7) 50%);
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@-webkit-keyframes text {
+  from {width: 10%} 
+  to {width: 100%}
+}
+
+@keyframes text {
+  from {width: 10%} 
+  to {width: 100%}
+}
+
+@-webkit-keyframes naslov {
+  from {opacity: 0;} 
+  to {opacity: 1;}
+}
+
+@keyframes naslov {
+  from {opacity: 0;} 
+  to {opacity: 1;}
+}
+
+@-webkit-keyframes  onama-hr{
+  from {width: 0px;} 
+  to {width: 70%;}
+}
+
+@keyframes  onama-hr{
+  from {width: 0px;} 
+  to {width: 70%;}
+}
+
+@-webkit-keyframes  onama-pocetna{
+  from {opacity: 0;} 
+  to {opacity: 1;}
+}
+
+@keyframes  onama-pocetna{
+  from {opacity: 0;} 
+  to {opacity: 1;}
+}
+
+
+/*
+#reveal2 {
+  opacity: 0;
+  
+  
+  -webkit-transition: all 1s ease-in-out;
+       -moz-transition: all 1s ease-in-out;
+          -ms-transition: all 1s ease-in-out;
+           -o-transition: all 1s ease-in-out;
+                  transition: all 1s ease-in-out;
+                  
+  
+
+}
+#reveal2.visible {
+  opacity: 1;
+  
+  -webkit-transform: none;
+       -moz-transform: none;
+          -ms-transform: none;
+           -o-transform: none;
+                  transform: none;
+ 
+}*/
+.lijevo1 {
+right: 700px;
+-webkit-transition: all 1s ease-in-out;
+-moz-transition: all 1s ease-in-out;
+-ms-transition: all 1s ease-in-out;
+-o-transition: all 1s ease-in-out;
+transition: all 1s ease-in-out;
+}
+.lijevo1-animacija {
+right: 0px;
+}
+
+.lijevo2 {
+opacity: 0;
+-webkit-transition: all 1s ease-in-out;
+-moz-transition: all 1s ease-in-out;
+-ms-transition: all 1s ease-in-out;
+-o-transition: all 1s ease-in-out;
+transition: all 1s ease-in-out;
+}
+.lijevo2-animacija {
+opacity: 1;
+}
+
+.desno1 {
+opacity: 0;
+-webkit-transition: all 1s ease-in-out;
+-moz-transition: all 1s ease-in-out;
+-ms-transition: all 1s ease-in-out;
+-o-transition: all 1s ease-in-out;
+transition: all 1s ease-in-out;
+}
+.desno1-animacija {
+opacity: 1;
+}
+
+.desno2 {
+left: 800px;
+-webkit-transition: all 1s ease-in-out;
+-moz-transition: all 1s ease-in-out;
+-ms-transition: all 1s ease-in-out;
+-o-transition: all 1s ease-in-out;
+transition: all 1s ease-in-out;
+}
+.desno2-animacija {
+left: 0px;
+}
+
